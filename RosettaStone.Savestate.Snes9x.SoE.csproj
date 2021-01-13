@@ -20,6 +20,7 @@
 		<Copyright></Copyright>
 		<RepositoryType>Rosetta Stone</RepositoryType>
 		<OutputType>Exe</OutputType>
+		<ApplicationIcon>Icon.ico</ApplicationIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
