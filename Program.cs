@@ -100,7 +100,7 @@ try
 			case { } when key.StartsWith("var "):
 				ShowVariable(saveSlot, key);
 				break;
-			case { } when key.StartsWith("number"):
+			case { } when key.StartsWith("byte"):
 				ShowOffsetNumber(saveSlotBytes, key);
 				break;
 			case { } when key.StartsWith("char"):
@@ -211,12 +211,12 @@ static void ShowCommands()
 	Console.WriteLine("vars: List saveslot variable names");
 	Console.WriteLine("slot: Shows the slot0 variable summary");
 	Console.WriteLine("var {name}: Shows the text value of that variable name");
-	Console.WriteLine("number {offset}: Shows the byte at offset X as number");
-	Console.WriteLine("number {offset:size}: Shows the bytes at offset X with");
+	Console.WriteLine("byte {offset}: Shows the byte at offset X as number");
+	Console.WriteLine("bytes {offset:size}: Shows the bytes at offset X with");
 	Console.WriteLine("char {offset}: Shows the char at offset X as number");
-	Console.WriteLine("char {offset:size}: Shows the chars at offset X with");
-	Console.WriteLine("string {offset}: Shows the ANSII string at the given offset");
+	Console.WriteLine("chars {offset:size}: Shows the chars at offset X with");
 	Console.WriteLine("string {offset:size}: Shows the ANSII string at the given offset");
+	Console.WriteLine($"Cmd-Line arg {{1}}: W-RAM S-RAM Offset ({SavestateWramHelper.WramSramOffset})");
 	Console.WriteLine();
 	Console.ResetColor();
 }
