@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<Version>0.0.1-a1</Version>
+		<PackageTags>Snes9x, Savestate, SNES, S-RAM, SRAM, Rosetta, Stone, Rosetta-Stone, Super Nintendo, Super Famicon</PackageTags>
+		<Authors>CleanCoderX</Authors>
+		<Description>Snes9x's savestate for SoE</Description>
+		<Company>KST</Company>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<RepositoryUrl>https://github.com/CleanCodeX/RosettaStone.Savestate.Snes9x</RepositoryUrl>
+		<PackageId>CCX.RosettaStone.Savestate.Snes9x.SoE</PackageId>
+		<Product>RosettaStone.Savestate.Snes9x.SoE</Product>
+		<Platforms>AnyCPU</Platforms>
+		<PackageIcon>Icon.png</PackageIcon>
+		<PackageProjectUrl>http://rosetta-stone.xeth.de</PackageProjectUrl>
+		<Copyright></Copyright>
+		<RepositoryType>Rosetta Stone</RepositoryType>
+		<OutputType>Exe</OutputType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectCapability Include="DynamicDependentFile" />
+		<ProjectCapability Include="DynamicFileNesting" />
+	</ItemGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+		<DebugType>full</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+		<Optimize>true</Optimize>
+		<DebugType>embedded</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CCX.RosettaStone.Savestate.Snes9x" Version="0.0.1-b1" />
+		<PackageReference Include="CCX.RosettaStone.Sram.SoE" Version="0.3.1-a2" />
+		<PackageReference Include="CCX.SramCommons" Version="1.0.4-a1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Properties\" />
+	</ItemGroup>
+
+	<ItemGroup>
+    <ProjectReference Include="..\RosettaStone.Savestate.Snes9x\RosettaStone.Savestate.Snes9x.csproj" />
+    <ProjectReference Include="..\RosettaStone.Sram.SoE\RosettaStone.Sram.SoE.csproj" />
+    <ProjectReference Include="..\SramCommons\SramCommons.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+	  <None Include="Icon.png">
+	    <Pack>True</Pack>
+	    <PackagePath></PackagePath>
+	  </None>
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30803.129
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RosettaStone.Savestate.Snes9x.SoE", "RosettaStone.Savestate.Snes9x.SoE.csproj", "{179450E2-2053-4B2D-839C-631434B2E148}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SramCommons", "..\SramCommons\SramCommons.csproj", "{D6845763-FAD1-4780-A155-5912CA6A3612}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RosettaStone.Savestate.Snes9x", "..\RosettaStone.Savestate.Snes9x\RosettaStone.Savestate.Snes9x.csproj", "{27AF6FAE-9101-4330-99A1-7C34324CC4FD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RosettaStone.Sram.SoE", "..\RosettaStone.Sram.SoE\RosettaStone.Sram.SoE.csproj", "{F4B06833-0D78-4CDD-98DB-906B78FA1A76}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{179450E2-2053-4B2D-839C-631434B2E148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{179450E2-2053-4B2D-839C-631434B2E148}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{179450E2-2053-4B2D-839C-631434B2E148}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{179450E2-2053-4B2D-839C-631434B2E148}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6845763-FAD1-4780-A155-5912CA6A3612}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6845763-FAD1-4780-A155-5912CA6A3612}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6845763-FAD1-4780-A155-5912CA6A3612}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6845763-FAD1-4780-A155-5912CA6A3612}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27AF6FAE-9101-4330-99A1-7C34324CC4FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27AF6FAE-9101-4330-99A1-7C34324CC4FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27AF6FAE-9101-4330-99A1-7C34324CC4FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27AF6FAE-9101-4330-99A1-7C34324CC4FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4B06833-0D78-4CDD-98DB-906B78FA1A76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4B06833-0D78-4CDD-98DB-906B78FA1A76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4B06833-0D78-4CDD-98DB-906B78FA1A76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4B06833-0D78-4CDD-98DB-906B78FA1A76}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B2811F3E-9337-4B8F-8D0E-337A10D8F87B}
+	EndGlobalSection
+EndGlobal
