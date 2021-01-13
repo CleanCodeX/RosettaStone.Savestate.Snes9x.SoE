@@ -5,7 +5,7 @@ using RosettaStone.Savestate.Snes9x.SoE.Constants;
 
 namespace RosettaStone.Savestate.Snes9x.SoE.Models.Structs
 {
-	[DebuggerDisplay("ToString(),nq")]
+	[DebuggerDisplay("{ToString(),nq}")]
 	public struct Chunk07
 	{
 		[MarshalAs(UnmanagedType.ByValArray, SizeConst = WramSizes.SaveSlot.Chunk07)]
