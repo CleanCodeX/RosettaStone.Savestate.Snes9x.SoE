@@ -6,13 +6,15 @@ using SramCommons.Extensions;
 namespace RosettaStone.Savestate.Snes9x.SoE.Constants
 {
 	/// <summary>
-	/// Known offsets of SoE's sram format
+	/// Known offsets of SoE's W-RAM format
 	/// </summary>
 	public class WramOffsets
 	{
-		/// base offset of the game data in the SRAM
+		public const int WramSramOffset = 8682; // [x21EA];
+
+		/// base offset of the game data in the S-RAM
 		public const int FirstSaveSlot = 2;
-		public const int SramChecksum = 0;
+		public const int WramChecksum = 0;
 
 		public class SaveSlot
 		{
@@ -25,125 +27,39 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Constants
 						select kvp.Key).LastOrDefault();
 			}
 
-			public const int Checksum = 0; // (2 bytes)
+			public const int SaveSlotChecksum = 0; // (2 bytes)
 
-			public const int Unknown1 = 2; // (36 bytes)
+			public const int LastSavePointName = 2; // (34 bytes)
+			public const int Unknown1 = 36; // [x24] (2 bytes)
 
-			///  of the boy's name
-			public const int BoyName = 38; // (34 bytes)
+			public const int BoyName = 38; // [x26] (34 bytes)
+			public const int Unknown2 = 72; // [x48] (2 bytes)
 
-			public const int Unknown2 = 72; // (2 bytes)
+			public const int DogName = 74; // [x4A] (34 bytes)
+			public const int Unknown3 = 108; // [x6C] (2 bytes)
 
-			///  of the dog's name
-			public const int DogName = 74; // (34 bytes)
-
-			public const int Unknown3 = 108; // (2 bytes)
-
-			///  of the boy's current HP
-			public const int BoyCurrentHp = 110; // (2 bytes)
-
-			public const int Unknown4_BoyBuff__BuffFlags = 112; // Offset 112
-			public const int Unknown4_BoyBuff__Unknown1 = Unknown4_BoyBuff__BuffFlags + 2; // Offset 114
-			public const int Unknown4_BoyBuff__Unknown2 = Unknown4_BoyBuff__Unknown1 + 2; // Offset 116
-			public const int Unknown4_BoyBuff__Unknown3 = Unknown4_BoyBuff__Unknown2 + 22; // Offset 138
-			public const int Unknown4_BoyBuff__Unknown4 = Unknown4_BoyBuff__Unknown3 + 2; // Offset 140
-
-			///  of the boy's max HP
-			public const int BoyMaxHp = 142; // (2 bytes)
-
-			public const int Unknown5 = 144; // (10 bytes)
-
-			///  of the boy's experience
-			public const int BoyExperience = 154; // (3 bytes)
-
-			///  of the boy's level
-			public const int BoyLevel = 157; // (2 bytes)
-
-			public const int Unknown6 = 159; // (16 bytes)
-
-			///  of the dog's current HP
-			public const int DogCurrentHp = 175; // (2 bytes)
-
-			public const int Unknown7_DogBuff__BuffFlags = 177; // Offset 177
-			public const int Unknown7_DogBuff__Unknown1 = Unknown7_DogBuff__BuffFlags + 2; // Offset 179
-			public const int Unknown7_DogBuff__Unknown2 = Unknown7_DogBuff__Unknown1 + 2; // Offset 181
-			public const int Unknown7_DogBuff__Unknown3 = Unknown7_DogBuff__Unknown2 + 22; // Offset 203
-			public const int Unknown7_DogBuff__Unknown7 = Unknown7_DogBuff__Unknown3 + 2; // Offset 205
-
-			///  of the dog's max HP
-			public const int DogMaxHp = 207; // (2 bytes)
-
-			public const int Unknown8 = 209; // (10 bytes)
-
-			///  of the dog's experience
-			public const int DogExperience = 219; // (3 bytes)
-
-			///  of the dog's level
-			public const int DogLevel = 222; // (2 bytes)
-
-			public const int Unknown9 = 224; // (28 bytes)
-
-			/// base money offset
-			public const int Money = 252; // (12 bytes)
-
-			public const int Unknown10 = 264; // (13 bytes)
-
-			/// base weapon Levels offset
-			public const int WeaponLevels = 277; // (26 bytes)
-
-			public const int Unknown11 = 303; // (14 bytes)
-
-			///  of the dog's attack level
-			public const int DogAttackLevel = 317; // (2 bytes)
-
-			public const int Unknown12A = 319; // (16 bytes)
-			public const int Unknown12B = 335; // (2 bytes)
-			public const int Unknown12C = 337; // (4 bytes)
-
-			/// base minor alchemy Levels offset
-			public const int AlchemyMinorLevels = 341; // (70 bytes)
-
-			public const int AlchemyMajorLevels = 411; // (70 bytes)
-
-			public const int Unknown13 = 481; // (23 bytes)
-
-			///  of boy's alchemy offset
-			public const int Alchemies = 503; // (5 bytes)
-
-			public const int Unknown14 = 508; // (4 bytes) 
-
-			///  of charms offset
-			public const int Charms = 512; // (3 bytes)
-
-			public const int Unknown15 = 515; // (118 bytes)
-
-			///  of boy's weapon offset
-			public const int Weapons = 633; // (2 bytes)
-
-			public const int Unknown16A = 635; // (4 bytes)
-			public const int Unknown16B_GothicaFlags = 639; // (4 bytes)
-			public const int Unknown16C = 643; // (6 bytes)
-
-			/// base alchemy ingredient offset
-			public const int Ingredients = 649; // (22 bytes)
-
-			/// base item offset
-			public const int Items = 671; // (8 bytes)
-
-			/// base item offset
-			public const int Armors = 679; // (40 bytes)
-
-			/// base item offset
-			public const int BazookaAmmunitions = 719; // (3 bytes)
-
-			public const int Unknown17 = 722; // (67 bytes)
-
-			/// base tradegood offset
-			public const int TradeGoods = 789; // (26 bytes)
-
-			public const int Unknown18 = 815; // (2 bytes)
+			public const int Chunk01 = 110; // [x6E] (2 bytes)
+			public const int Chunk02 = 112; // [x70] (26 bytes)
+			public const int Chunk03 = 138; // [x8A] (4 bytes)
+			public const int Chunk04 = 142; // [x8E] (2 bytes)
+			public const int Chunk05 = 144; // [x90] (13 bytes)
+			public const int Chunk06 = 157; // [x9D] (4 bytes)
+			public const int Chunk07 = 161; // [xA1] (14 bytes)
+			public const int Chunk08 = 175; // [xAf] (2 bytes)
+			public const int Chunk09 = 177; // [xB1] (26 bytes)
+			public const int Chunk10 = 203; // [xCB] (4 bytes)
+			public const int Chunk11 = 207; // [xCF] (2 bytes)
+			public const int Chunk12 = 209; // [xD1] (13 bytes)
+			public const int Chunk13 = 222; // [xDE] (4 bytes)
+			public const int Chunk14 = 226; // [xE2] (14 bytes)
+			public const int Chunk15 = 240; // [xF0] (101 bytes)
+			public const int Chunk16 = 341; // [x155] (162 bytes)
+			public const int Chunk17 = 503; // [x1F7] (146 bytes)
+			public const int Chunk18 = 649; // [x289] (92 bytes)
+			public const int Chunk19 = 741; // [x2E5] (44 bytes)
+			public const int Chunk20 = 785; // [x311] (32 bytes)
 		}
 
-		public const int SramUnknown1 = 3_270;
+		public const int WramUnknown1 = 3_270;
 	}
 }
