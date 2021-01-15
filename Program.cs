@@ -6,7 +6,7 @@ using System.Text;
 using Common.Shared.Min.Extensions;
 using RosettaStone.Savestate.Snes9x.Helpers;
 using RosettaStone.Savestate.Snes9x.SoE.Helpers;
-using RosettaStone.Savestate.Snes9x.SoE.Models.Structs;
+using RosettaStone.Sram.SoE.Models.Structs;
 using SramCommons.Extensions;
 
 Console.BufferHeight = 1000;
@@ -18,6 +18,8 @@ try
 {
 	if (args.Length == 0)
 		throw new ArgumentException("Pass a file as argument.");
+
+	var filePath = args[0];
 
 	if (args.Length > 1)
 	{
@@ -33,11 +35,19 @@ try
 	Console.ForegroundColor = ConsoleColor.Magenta;
 	Console.WriteLine("Reading file:");
 	Console.ForegroundColor = ConsoleColor.Yellow;
-	Console.WriteLine(args[0]);
+	Console.WriteLine(filePath);
 	Console.WriteLine();
 
-	var wramBytes = SavestateReader.Load(args[0]).RAM.Data;
-	var wramFile = SavestateWramHelper.GetWSramFileFromWram(wramBytes);
+	var savestateFile = SavestateReader.Load(filePath);
+	var sramFile = SavestateWramHelper.GetSramFileFromSavestate(savestateFile);
+
+	var fileName = Path.GetFileNameWithoutExtension(filePath);
+	var srmFilePath = Path.Join(Path.GetDirectoryName(filePath), fileName + ".srm");
+
+	if(File.Exists(srmFilePath))
+		File.Copy(srmFilePath, srmFilePath + ".backup", true);
+
+	sramFile.Save(srmFilePath);
 
 	DumpWram();
 	DumpWSram();
@@ -68,22 +78,22 @@ try
 					ShowVariables();
 					break;
 				case "slot":
-					Console.WriteLine(wramFile.GetSaveSlot(0).ToString());
+					Console.WriteLine(sramFile.GetSaveSlot(0).ToString());
 					break;
 				case "sramoffset":
 					SetSramOffset();
 					break;
 				case { } when key.StartsWith("var "):
-					ShowVariable(wramFile.GetSaveSlot(0), key);
+					ShowVariable(sramFile.GetSaveSlot(0).Data, key);
 					break;
 				case { } when key.StartsWith("byte"):
-					ShowOffsetNumber(wramFile.GetSaveSlotBytes(0), key);
+					ShowOffsetNumber(sramFile.GetSaveSlotBytes(0), key);
 					break;
 				case { } when key.StartsWith("char"):
-					ShowOffsetCharacters(wramFile.GetSaveSlotBytes(0), key);
+					ShowOffsetCharacters(sramFile.GetSaveSlotBytes(0), key);
 					break;
 				case { } when key.StartsWith("string"):
-					ShowOffsetString(wramFile.GetSaveSlotBytes(0), key);
+					ShowOffsetString(sramFile.GetSaveSlotBytes(0), key);
 					break;
 				default:
 					Console.WriteLine(@$"Unknown command name: ""{key}""");
@@ -115,7 +125,7 @@ try
 		Console.WriteLine();
 		Console.ResetColor();
 
-		wramFile = SavestateWramHelper.GetWSramFileFromWram(wramBytes);
+		sramFile = SavestateWramHelper.GetSramFileFromSavestate(savestateFile);
 		DumpWSram();
 	}
 
@@ -123,11 +133,11 @@ try
 	{
 		Console.ForegroundColor = ConsoleColor.Green;
 
-		var file = $"2_W-SramDump_{wramFile.BufferSize}_bytes.txt";
-		File.WriteAllBytes(file, wramFile.Buffer);
-		Console.WriteLine($"Dumped W-SRAM ({wramFile.BufferSize} bytes): {file}");
+		var file = $"2_W-SramDump_{sramFile.BufferSize}_bytes.txt";
+		File.WriteAllBytes(file, sramFile.Buffer);
+		Console.WriteLine($"Dumped W-SRAM ({sramFile.BufferSize} bytes): {file}");
 
-		var bytes = wramFile.GetSaveSlotBytes(0);
+		var bytes = sramFile.GetSaveSlotBytes(0);
 
 		file = $"3_SaveSlot0Dump_{bytes.Length}_bytes.txt";
 		File.WriteAllBytes(file, bytes);
@@ -140,10 +150,11 @@ try
 	{
 		Console.ForegroundColor = ConsoleColor.Green;
 
-		var file = $"1_WramDump_{wramBytes.Length}_bytes.txt";
-		File.WriteAllBytes(file, wramBytes);
+		var data = savestateFile.RAM.Data;
+		var file = $"1_WramDump_{data.Length}_bytes.txt";
+		File.WriteAllBytes(file, data);
 		
-		Console.WriteLine($"Dumped WRAM ({wramBytes.Length} bytes): {file}");
+		Console.WriteLine($"Dumped WRAM ({data.Length} bytes): {file}");
 		Console.ResetColor();
 	}
 }
@@ -248,7 +259,8 @@ void ShowCommands()
 	Console.WriteLine("?: This command list");
 	Console.WriteLine("sramoffset: Setzt das W-SRAM-Offset");
 	Console.WriteLine("vars: List saveslot variable names");
-	Console.WriteLine("slot: Shows the slot0 variable summary");
+	Console.WriteLine("sslot: Shows the S-RAM slot 0 content");
+	Console.WriteLine("wslot: Shows the W-RAM slot 0 content");
 	Console.WriteLine("var {name}: Shows the text value of that variable name");
 	Console.WriteLine("byte {offset}: Shows the byte at offset X as number");
 	Console.WriteLine("bytes {offset:size}: Shows the bytes at offset X with");
@@ -260,7 +272,7 @@ void ShowCommands()
 	Console.ForegroundColor = ConsoleColor.Cyan;
 	Console.WriteLine("Cmd-Args:");
 	Console.ForegroundColor = ConsoleColor.Yellow;
-	Console.WriteLine($"Arg {{0}} ~ Savestate file: [{args[0]}]");
+	Console.WriteLine($"Arg {{0}} ~ Savestate file: [{args[0]}");
 	Console.WriteLine($"Arg {{1}} ~ W-RAM S-RAM Offset: ({SavestateWramHelper.WramSramOffset})");
 	Console.ForegroundColor = ConsoleColor.Cyan;
 	Console.WriteLine("Hint: Hex-numbers must be prefixed with x (e.g. x100)");
@@ -271,15 +283,15 @@ void ShowCommands()
 static void ShowVariables()
 {
 	Console.ForegroundColor = ConsoleColor.Yellow;
-	Console.WriteLine(typeof(WramSaveSlotSoE).GetFields().Select(e => e.Name).Join(Environment.NewLine));
+	Console.WriteLine(typeof(SaveSlotDataSoE).GetFields().Select(e => e.Name).Join(Environment.NewLine));
 	Console.WriteLine();
 	Console.ResetColor();
 }
 
-static void ShowVariable(WramSaveSlotSoE saveSlot, string key)
+static void ShowVariable(SaveSlotDataSoE saveSlot, string key)
 {
 	var name = key.Substring(4).Trim();
-	var fieldInfo = typeof(WramSaveSlotSoE).GetFields().SingleOrDefault(e => e.Name.EqualsInsensitive(name));
+	var fieldInfo = saveSlot.GetType().GetFields().SingleOrDefault(e => e.Name.EqualsInsensitive(name));
 	if (fieldInfo is null)
 		throw new ArgumentException(@$"Field ""{key}"" does not exist");
 

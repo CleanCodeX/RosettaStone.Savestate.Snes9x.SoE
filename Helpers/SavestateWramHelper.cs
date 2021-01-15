@@ -1,8 +1,6 @@
-﻿using System.Diagnostics;
-using System.Text;
+﻿using System;
+using RosettaStone.Savestate.Snes9x.Models.Structs;
 using RosettaStone.Savestate.Snes9x.SoE.Constants;
-using RosettaStone.Savestate.Snes9x.SoE.Models;
-using RosettaStone.Sram.SoE.Constants;
 using RosettaStone.Sram.SoE.Enums;
 using RosettaStone.Sram.SoE.Models;
 
@@ -12,45 +10,22 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Helpers
 	{
 		internal static int WramSramOffset = WramOffsets.WramSramOffset; // 8682
 
-		internal static SramFileSoE GetSramFileFromWram(byte[] wram) => GetSramFileFromWSram(GetSramChunkFromWram(wram));
-		internal static WSramFileSoE GetWSramFileFromWram(byte[] wram) => new(GetSramChunkFromWram(wram), GameRegion.EnglishNtsc);
-
-		private static SramFileSoE GetSramFileFromWSram(byte[] wSram)
+		internal static SramFileSoE GetSramFileFromSavestate(SavestateSnex9x savestate)
 		{
 			const GameRegion region = GameRegion.EnglishNtsc;
-			
-			var sram = new byte[8192];
+	
+			var sramFile = new SramFileSoE(savestate.SRA.Data, region);
+			var slotIndex = sramFile.Sram.LastSaveslot / 2;
 
-			// Debug
-			var W = Encoding.ASCII.GetString(wSram);
-			var pos = W.IndexOf("Latschi") - WramOffsets.SaveSlot.BoyName;
-			Debug.Assert(pos == 0);
+			var dataW = savestate.RAM.Data;
+			var dataS = sramFile.GetSaveSlotBytes(slotIndex);
 
-			pos = W.IndexOf("Hundi") - WramOffsets.SaveSlot.DogName;
-			Debug.Assert(pos == 0);
+			foreach (var (wOffset, (sOffset, size)) in WramOffsets.SaveSlot.WramSramMappings)
+				Array.Copy(dataW, wOffset, dataS, sOffset, size);
 
-			var sramFile = new SramFileSoE(sram, region);
-			var wramFile = new WSramFileSoE(wSram, region);
-
-			//var supposedBoyLevelPre10 = GetBufferRange(wSram, WramOffsets.SaveSlot.Chunk02 - 10, WramSizes.SaveSlot.Chunk02 + 10);
-			//var supposedBoyLevelPost10 = GetBufferRange(wSram, WramOffsets.SaveSlot.Chunk02, WramSizes.SaveSlot.Chunk02 + 10);
-
-			// Loop though all save slots
-			for (var i = 0; i < 4; i += SramSizes.SaveSlot.All)
-			{
-				//var slotS = sramFile.GetSaveSlot(i);
-				var dataW = wramFile.GetSaveSlot(i);
-
-				Debug.Assert(false);
-			}
+			sramFile.SetSaveSlotBytes(slotIndex, dataS);
 
 			return sramFile;
 		}
-
-		private static byte[] GetSramChunkFromWram(byte[] wram) => GetSramChunkFromWram(wram, WramSramOffset);
-		private static byte[] GetSramChunkFromWram(byte[] wram, int offset) => GetBufferRange(wram, offset, SramSizes.Sram);
-		private static byte[] GetBufferRange(byte[] wram, int offset, int size, int offsetOffset) => GetBufferRange(wram, offset - offsetOffset, size + offsetOffset * 2);
-
-		private static byte[] GetBufferRange(byte[] buffer, int offset, int size) => buffer[offset..(offset + size)];
 	}
 }
