@@ -66,11 +66,9 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Models
 
 				ref var data = ref saveSlot;
 
-				var unknown1 = data.Unknown1;
-				var boyName = data.BoyName;
-				var unknown2 = data.Unknown2;
-				var dogName = data.DogName;
-				var unknown3 = data.Unknown3;
+				var lastSavePointName = data.LastSavePointName.AsTrimmedString;
+				var boyName = data.BoyName.AsTrimmedString;
+				var dogName = data.DogName.AsTrimmedString;
 
 				var chunk01 = data.Chunk01.Data.FormatAsString();
 				var chunk02 = data.Chunk02.Data.FormatAsString();

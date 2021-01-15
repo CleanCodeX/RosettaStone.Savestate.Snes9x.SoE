@@ -42,8 +42,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CCX.RosettaStone.Savestate.Snes9x" Version="0.1.0-a2" />
-		<PackageReference Include="CCX.RosettaStone.Sram.SoE" Version="0.4.0-a2" />
+		<PackageReference Include="CCX.RosettaStone.Savestate.Snes9x" Version="0.1.0-a3" />
+		<PackageReference Include="CCX.RosettaStone.Sram.SoE" Version="0.4.0-a3" />
 	</ItemGroup>
 
 	<ItemGroup>
