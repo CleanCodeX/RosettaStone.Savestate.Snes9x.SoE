@@ -51,6 +51,6 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Helpers
 		private static byte[] GetSramChunkFromWram(byte[] wram, int offset) => GetBufferRange(wram, offset, SramSizes.Sram);
 		private static byte[] GetBufferRange(byte[] wram, int offset, int size, int offsetOffset) => GetBufferRange(wram, offset - offsetOffset, size + offsetOffset * 2);
 
-		private static byte[] GetBufferRange(byte[] buffer, int offset, int size) => buffer[offset..(offset + size + 1)];
+		private static byte[] GetBufferRange(byte[] buffer, int offset, int size) => buffer[offset..(offset + size)];
 	}
 }

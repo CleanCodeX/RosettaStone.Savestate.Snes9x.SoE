@@ -8,7 +8,7 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Constants
 	public class WramSizes
 	{
 		/// Size of the SRAM file
-		public const int Wram = 8_192;
+		public const int Wram = 8_184;
 		
 		/// <summary>Sizes of save slot buffers</summary>
 		public class SaveSlot
@@ -45,7 +45,7 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Constants
 
 			public const int AllNonChunk = LastSavePointName + BoyName + DogName;
 
-			public const int All = 817;
+			public const int All = 815;
 		}
 
 		/// Size of the SRAM's unknown buffer
