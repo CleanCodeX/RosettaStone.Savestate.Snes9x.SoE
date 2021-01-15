@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
 		<Nullable>enable</Nullable>
-		<Version>0.0.2-b4</Version>
+		<Version>0.0.2-b5</Version>
 		<PackageTags>Snes9x, Savestate, SNES, S-RAM, SRAM, Rosetta, Stone, Rosetta-Stone, Super Nintendo, Super Famicon</PackageTags>
 		<Authors>CleanCoderX</Authors>
 		<Description>Snes9x's savestate for SoE</Description>
@@ -19,9 +19,22 @@
 		<PackageProjectUrl>http://rosetta-stone.xeth.de</PackageProjectUrl>
 		<Copyright></Copyright>
 		<RepositoryType>Rosetta Stone</RepositoryType>
-		<OutputType>Exe</OutputType>
+		<OutputType>Library</OutputType>
 		<ApplicationIcon>Icon.ico</ApplicationIcon>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Program.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Icon.png" />
+	  <None Remove="Icon.png" />
+	  <None Include="Icon.png">
+	    <Pack>True</Pack>
+	    <PackagePath></PackagePath>
+	  </None>
+	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectCapability Include="DynamicDependentFile" />
@@ -54,12 +67,5 @@
     <ProjectReference Include="..\RosettaStone.Savestate.Snes9x\RosettaStone.Savestate.Snes9x.csproj" />
     <ProjectReference Include="..\RosettaStone.Sram.SoE\RosettaStone.Sram.SoE.csproj" />
   </ItemGroup>
-
-	<ItemGroup>
-	  <None Include="Icon.png">
-	    <Pack>True</Pack>
-	    <PackagePath></PackagePath>
-	  </None>
-	</ItemGroup>
 
 </Project>
