@@ -7,6 +7,6 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Extensions
 {
 	public static class StreamExtensions
     {
-	    public static Stream? GetSramFromSavestate(this Stream source) => SavestateWramHelper.GetSramFileFromSavestate(SavestateReader.Load(source)).Sram.ToStream();
+	    public static Stream GetSramFromSavestate(this Stream source) => SavestateWramHelper.GetSramFileFromSavestate(SavestateReader.Load(source)).Sram.ToStream();
     }
 }
