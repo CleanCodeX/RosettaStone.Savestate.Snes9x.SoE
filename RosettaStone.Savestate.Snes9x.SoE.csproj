@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
 		<Nullable>enable</Nullable>
-		<Version>0.0.2-b2</Version>
+		<Version>0.0.2-b3</Version>
 		<PackageTags>Snes9x, Savestate, SNES, S-RAM, SRAM, Rosetta, Stone, Rosetta-Stone, Super Nintendo, Super Famicon</PackageTags>
 		<Authors>CleanCoderX</Authors>
 		<Description>Snes9x's savestate for SoE</Description>
@@ -43,7 +43,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="CCX.RosettaStone.Savestate.Snes9x" Version="0.1.0-a3" />
-		<PackageReference Include="CCX.RosettaStone.Sram.SoE" Version="0.4.0-a4" />
+		<PackageReference Include="CCX.RosettaStone.Sram.SoE" Version="0.4.0-b1" />
 	</ItemGroup>
 
 	<ItemGroup>
