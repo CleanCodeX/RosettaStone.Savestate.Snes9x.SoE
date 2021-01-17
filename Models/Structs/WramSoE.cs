@@ -1,20 +1,19 @@
-using System;
 using System.Runtime.InteropServices;
 using RosettaStone.Savestate.Snes9x.SoE.Constants;
+
 // ReSharper disable BuiltInTypeReferenceStyle
 
 namespace RosettaStone.Savestate.Snes9x.SoE.Models.Structs
 {
-	[StructLayout(LayoutKind.Sequential, Pack = 1)] // 8192
+	[StructLayout(LayoutKind.Sequential, Pack = 1)] 
 	public struct WramSoE
 	{
-		public byte StereoMono; // Offset 0 (1 byte)
-		public byte LastSaveslot; // Offset 1 (1 byte)
+		[MarshalAs(UnmanagedType.ByValArray, SizeConst = WramSizes.Unknown1)]
+		public byte[] Unknown1; // Offset 0 (2613 bytes)
 
-		[MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-		public WramSaveSlotSoE[] SaveSlots; // Offset 2 (3268 = 4* 817 bytes)
+		public WramSramAreaSoE SramArea; // Offset [2613|xA35] (17_840 bytes)
 
-		[MarshalAs(UnmanagedType.ByValArray, SizeConst = WramSizes.WramUnknown1)]
-		public byte[] Unknown1; // Offset 3270 [xCC6] (4922 bytes)
+		[MarshalAs(UnmanagedType.ByValArray, SizeConst = WramSizes.Unknown2)]
+		public byte[] Unknown2; // Offset [20_453|x4FE5] (110_619 bytes)
 	}
 }

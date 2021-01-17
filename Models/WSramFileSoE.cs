@@ -11,9 +11,9 @@ using SramCommons.Models;
 namespace RosettaStone.Savestate.Snes9x.SoE.Models
 {
 	/// <summary>
-	/// SramFile implementation for <see cref="WramSoE"/> and <see cref="WramSaveSlotSoE"/>
+	/// SramFile implementation for <see cref="WramSoE"/> and <see cref="WramSramAreaSoE"/>
 	/// </summary>
-	public class WSramFileSoE : SramFile<WramSoE, WramSaveSlotSoE>
+	public class WSramFileSoE : SegmentFile<WramSoE, WramSramAreaSoE>
 	{
 		/// <summary>
 		/// The SRAM's file gameRegion 
@@ -25,7 +25,7 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Models
 		/// </summary>
 		/// <param name="buffer">The buffer from which the W-RAM buffer and W-RAM structure will be loaded from</param>
 		/// <param name="gameRegion">The SRAM's file gameRegion</param>
-		public WSramFileSoE(byte[] buffer, GameRegion gameRegion) : base(buffer, WramOffsets.FirstSaveSlot, 3)
+		public WSramFileSoE(byte[] buffer, GameRegion gameRegion) : base(buffer, WramOffsets.SramArea)
 		{
 			SizeChecks();
 			GameRegion = gameRegion;
@@ -36,7 +36,7 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Models
 		/// </summary>
 		/// <param name="stream">The (opened) stream from which the W-RAM buffer and W-RAM structure will be loaded from</param>
 		/// <param name="gameRegion">The SRAM's file gameRegion</param>
-		public WSramFileSoE(Stream stream, GameRegion gameRegion) : base(stream, WramOffsets.FirstSaveSlot, 3)
+		public WSramFileSoE(Stream stream, GameRegion gameRegion) : base(stream, WramOffsets.SramArea)
 		{
 			SizeChecks();
 			GameRegion = gameRegion;
@@ -44,66 +44,56 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Models
 
 		private void SizeChecks()
 		{
-			Debug.Assert(WramSizes.SaveSlot.All == WramSizes.SaveSlot.AllNonChunk + WramSizes.SaveSlot.AllChunks);
+			Debug.Assert(WramSizes.IsValid);
+			Debug.Assert(WramSizes.Sram.IsValid);
 
-			Requires.Equal(Marshal.SizeOf<WramSoE>(), WramSizes.Wram, nameof(BufferSize));
-			Requires.Equal(Marshal.SizeOf<WramSaveSlotSoE>(), WramSizes.SaveSlot.All, nameof(SaveSlotSize));
+			Requires.Equal(Marshal.SizeOf<WramSoE>(), WramSizes.All, nameof(Size));
+			Requires.Equal(Marshal.SizeOf<WramSramAreaSoE>(), WramSizes.Sram.All, nameof(SegmentSize));
 		}
 
 		/// <summary>
 		/// Gets the savegame from Wram structure for the given save slot index
 		/// </summary>
-		/// <param name="slotIndex"></param>
 		/// <returns></returns>
-		public override WramSaveSlotSoE GetSaveSlot(int slotIndex)
+		public override WramSramAreaSoE GetSegment()
 		{
-			ref var saveSlot = ref Sram.SaveSlots[slotIndex];
+			var data = Struct.SramArea;
 #if DEBUG
 			if (Debugger.IsAttached)
 			{
 #pragma warning disable IDE0059 // Unnötige Zuweisung eines Werts.
 				// ReSharper disable UnusedVariable
 
-				ref var data = ref saveSlot;
+				var boyName = data.BoyName.AsString;
+				var dogName = data.DogName.AsString;
 
-				var lastSavePointName = data.LastSavePointName.AsTrimmedString;
-				var boyName = data.BoyName.AsTrimmedString;
-				var dogName = data.DogName.AsTrimmedString;
-
-				var chunk01 = data.Chunk01.Data.FormatAsString();
-				var chunk02 = data.Chunk02.Data.FormatAsString();
-				var chunk03 = data.Chunk03.Data.FormatAsString();
-				var chunk04 = data.Chunk04.Data.FormatAsString();
-				var chunk05 = data.Chunk05.Data.FormatAsString();
-				var chunk06 = data.Chunk06.Data.FormatAsString();
-				var chunk07 = data.Chunk07.Data.FormatAsString();
-				var chunk08 = data.Chunk08.Data.FormatAsString();
-				var chunk09 = data.Chunk09.Data.FormatAsString();
-				var chunk10 = data.Chunk10.Data.FormatAsString();
-				var chunk11 = data.Chunk11.Data.FormatAsString();
-				var chunk12 = data.Chunk12.Data.FormatAsString();
-				var chunk13 = data.Chunk13.Data.FormatAsString();
-				var chunk14 = data.Chunk14.Data.FormatAsString();
-				var chunk15 = data.Chunk15.Data.FormatAsString();
-				var chunk16 = data.Chunk16.Data.FormatAsString();
-				var chunk17 = data.Chunk17.Data.FormatAsString();
-				var chunk18 = data.Chunk18.Data.FormatAsString();
-				var chunk19 = data.Chunk19.Data.FormatAsString();
-				var chunk20 = data.Chunk20.Data.FormatAsString();
+				var chunk01 = data.Chunk13.Data.FormatAsString();
+				var chunk02 = data.Chunk14.Data.FormatAsString();
+				var chunk03 = data.Chunk15.Data.FormatAsString();
+				var chunk04 = data.Chunk1.Data.FormatAsString();
+				var chunk05 = data.Chunk2.Data.FormatAsString();
+				var chunk06 = data.Chunk3.Data.FormatAsString();
+				var chunk07 = data.Chunk4.Data.FormatAsString();
+				var chunk08 = data.Chunk17.Data.FormatAsString();
+				var chunk09 = data.Chunk18.Data.FormatAsString();
+				var chunk10 = data.Chunk19.Data.FormatAsString();
+				var chunk11 = data.Chunk4.Data.FormatAsString();
+				var chunk12 = data.Chunk5.Data.FormatAsString();
+				var chunk13 = data.Chunk6.Data.FormatAsString();
+				var chunk14 = data.Chunk20.Data.FormatAsString();
+				var chunk15 = data.Chunk7.Data.FormatAsString();
+				var chunk16 = data.Chunk12.Data.FormatAsString();
+				var chunk17 = data.Chunk8.Data.FormatAsString();
+				var chunk18 = data.Chunk9.Data.FormatAsString();
+				var chunk19 = data.Chunk10.Data.FormatAsString();
+				var chunk20 = data.Chunk11.Data.FormatAsString();
 
 				// ReSharper restore UnusedVariable
 #pragma warning restore IDE0059 // Unnötige Zuweisung eines Werts.
 			}
 #endif
-			return saveSlot;
+			return data;
 		}
-
-		/// <summary>
-		/// Saves savegame to SaveSlot structure, not not to Sram buffer. To save to sram buffer call Save method.
-		/// </summary>
-		/// <param name="slotIndex">The target save slot index the game is saved to</param>
-		/// <param name="slot">The game to be saved</param>
-		public override void SetSaveSlot(int slotIndex, WramSaveSlotSoE slot) => Sram.SaveSlots[slotIndex] = slot;
 
 		/// <summary>
 		/// Saves the data of Sram structure to Sram buffer.
@@ -111,10 +101,7 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Models
 		/// <param name="stream"></param>
 		public override void Save(Stream stream)
 		{
-			for (var slotIndex = 0; slotIndex <= 3; ++slotIndex)
-				if (IsValid(slotIndex))
-					base.SetSaveSlot(slotIndex, Sram.SaveSlots[slotIndex]);
-
+			base.SetSegment(Struct.SramArea);
 			base.Save(stream);
 		}
 	}

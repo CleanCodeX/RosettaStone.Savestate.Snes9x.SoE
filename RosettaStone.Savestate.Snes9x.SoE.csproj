@@ -3,10 +3,10 @@
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
 		<Nullable>enable</Nullable>
-		<Version>0.0.2-b5</Version>
-		<PackageTags>Snes9x, Savestate, SNES, S-RAM, SRAM, Rosetta, Stone, Rosetta-Stone, Super Nintendo, Super Famicon</PackageTags>
+		<Version>0.0.3-a1</Version>
+		<PackageTags>Snes9x, Savestate, SNES, S-RAM, SRAM, W-RAM, WRAM. Rosetta Stone, Rosetta-Stone, Super Nintendo, Super Famicon</PackageTags>
 		<Authors>CleanCoderX</Authors>
-		<Description>Snes9x's savestate for SoE</Description>
+		<Description>Snes9x's savestate load and S-RAM extract functionality for SoE</Description>
 		<Company>KST</Company>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -17,20 +17,13 @@
 		<Platforms>AnyCPU</Platforms>
 		<PackageIcon>Icon.png</PackageIcon>
 		<PackageProjectUrl>http://rosetta-stone.xeth.de</PackageProjectUrl>
-		<Copyright></Copyright>
 		<RepositoryType>Rosetta Stone</RepositoryType>
 		<OutputType>Library</OutputType>
 		<ApplicationIcon>Icon.ico</ApplicationIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Compile Remove="Program.cs" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Remove="Icon.png" />
-	  <None Remove="Icon.png" />
-	  <None Include="Icon.png">
+		<None Include="Icon.png">
 	    <Pack>True</Pack>
 	    <PackagePath></PackagePath>
 	  </None>
@@ -48,15 +41,14 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-		<AllowUnsafeBlocks>false</AllowUnsafeBlocks>
 		<Optimize>true</Optimize>
 		<DebugType>embedded</DebugType>
 		<DebugSymbols>true</DebugSymbols>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CCX.RosettaStone.Savestate.Snes9x" Version="0.1.0-a3" />
-		<PackageReference Include="CCX.RosettaStone.Sram.SoE" Version="0.4.0-b2" />
+		<PackageReference Include="CCX.RosettaStone.Savestate.Snes9x" Version="0.1.1-a1" />
+		<PackageReference Include="CCX.RosettaStone.Sram.SoE" Version="0.4.1-a2" />
 	</ItemGroup>
 
 	<ItemGroup>
