@@ -16,7 +16,7 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Models
 	public class WSramFileSoE : SegmentFile<WramSoE, WramSramAreaSoE>
 	{
 		/// <summary>
-		/// The SRAM's file gameRegion 
+		/// The S-RAM's file gameRegion 
 		/// </summary>
 		public GameRegion GameRegion { get; }
 
@@ -24,7 +24,7 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Models
 		/// Creates an instance of <see cref="WSramFileSoE" />
 		/// </summary>
 		/// <param name="buffer">The buffer from which the W-RAM buffer and W-RAM structure will be loaded from</param>
-		/// <param name="gameRegion">The SRAM's file gameRegion</param>
+		/// <param name="gameRegion">The S-RAM's file gameRegion</param>
 		public WSramFileSoE(byte[] buffer, GameRegion gameRegion) : base(buffer, WramOffsets.SramArea)
 		{
 			SizeChecks();
@@ -35,7 +35,7 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Models
 		/// Creates an instance of <see cref="WSramFileSoE" />
 		/// </summary>
 		/// <param name="stream">The (opened) stream from which the W-RAM buffer and W-RAM structure will be loaded from</param>
-		/// <param name="gameRegion">The SRAM's file gameRegion</param>
+		/// <param name="gameRegion">The S-RAM's file gameRegion</param>
 		public WSramFileSoE(Stream stream, GameRegion gameRegion) : base(stream, WramOffsets.SramArea)
 		{
 			SizeChecks();

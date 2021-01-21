@@ -106,7 +106,7 @@ namespace RosettaStone.Savestate.Snes9x.SoE
 
 					var file = $"2_W-SramDump_{sramFile.Size}_bytes.txt";
 					File.WriteAllBytes(file, sramFile.Buffer);
-					Console.WriteLine($"Dumped W-SRAM ({sramFile.Size} bytes): {file}");
+					Console.WriteLine($"Dumped W-S-RAM ({sramFile.Size} bytes): {file}");
 
 					var bytes = sramFile.GetSegmentBytes(0);
 
@@ -229,7 +229,7 @@ namespace RosettaStone.Savestate.Snes9x.SoE
 			Console.WriteLine("Commands:");
 			Console.ForegroundColor = ConsoleColor.Yellow;
 			Console.WriteLine("?: This command list");
-			Console.WriteLine("sramoffset: Setzt das W-SRAM-Offset");
+			Console.WriteLine("sramoffset: Setzt das W-S-RAM-Offset");
 			Console.WriteLine("vars: List saveslot variable names");
 			Console.WriteLine("sslot: Shows the S-RAM slot 0 content");
 			Console.WriteLine("wslot: Shows the W-RAM slot 0 content");

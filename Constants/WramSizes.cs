@@ -9,7 +9,7 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Constants
 	public class WramSizes
 	{
 		public const int Unknown1 = 2_613;
-		/// Size of the SRAM file
+		/// Size of the S-RAM file
 		public const int SramArea = 17_840;
 		public const int Unknown2 = 110_619;
 
