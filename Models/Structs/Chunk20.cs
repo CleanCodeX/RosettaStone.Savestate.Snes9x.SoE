@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
-using RosettaStone.Savestate.Snes9x.SoE.Extensions;
+using SramCommons.Extensions;
 using RosettaStone.Savestate.Snes9x.SoE.Constants;
 
 namespace RosettaStone.Savestate.Snes9x.SoE.Models.Structs

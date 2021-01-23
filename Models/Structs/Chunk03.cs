@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using RosettaStone.Savestate.Snes9x.SoE.Constants;
-using RosettaStone.Savestate.Snes9x.SoE.Extensions;
+using SramCommons.Extensions;
 
 namespace RosettaStone.Savestate.Snes9x.SoE.Models.Structs
 {
