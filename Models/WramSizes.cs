@@ -1,3 +1,5 @@
+using RosettaStone.Sram.SoE.Models;
+
 namespace RosettaStone.Savestate.Snes9x.SoE.Models
 {
 	/// <summary>
@@ -6,46 +8,7 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Models
 	public class WramSizes
 	{
 		public const int All = 128 * 1024;
-		public const bool IsValid = AllChunks + AllUnknown == All;
-
-		#region Chunks
-
-		public const int Chunk1 = 72; // (x24) 
-
-		public const int Chunk2 = 2; // (x2) 
-		public const int Chunk3 = 13; // (xD) 
-		public const int Chunk4 = 4; // (x4) 
-		public const int Chunk5 = 2; // (x2) 
-		public const int Chunk6 = 13; // (xD)
-		public const int Chunk7 = 4; // (x4) 
-		public const int Chunk8 = 101; // (x65)
-
-		public const int Chunk9 = 146; // (x92)
-		public const int Chunk10 = 92; // (x5C) 
-		public const int Chunk11 = 44; // (x2C) 
-		public const int Chunk12 = 32; // (x20)
-
-		public const int Chunk13 = 162; // (xA2) 
-
-		public const int Chunk14 = 2; // (x2) 
-		public const int Chunk15 = 24; // (x18) 
-		public const int Chunk16 = 6; // (x6) 
-
-		public const int Chunk17 = 14; // (xE) 
-		public const int Chunk18 = 2; // (x2) 
-		public const int Chunk19 = 24; // (x18) 
-		public const int Chunk20 = 6; // (x6) 
-		public const int Chunk21 = 14; // (xE)
-
-		public const int AllChunks = Chunk1 + Chunk2 + Chunk3 + Chunk4 + Chunk5 +
-									 Chunk6 + Chunk7 + Chunk8 + Chunk9 + Chunk10 +
-									 Chunk11 + Chunk12 + Chunk13 + Chunk14 + Chunk15 +
-									 Chunk16 + Chunk17 + Chunk18 + Chunk19 + Chunk20 +
-									 Chunk21;
-
-		public const int ChunkPercentage = AllChunks * 100 / All;
-
-		#endregion
+		public const bool IsValid = SramSizes.SaveSlot.AllChunks + AllUnknown == All;
 
 		#region Unknowns
 
