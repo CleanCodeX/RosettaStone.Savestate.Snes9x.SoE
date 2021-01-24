@@ -58,6 +58,7 @@
 	<ItemGroup>
     <ProjectReference Include="..\RosettaStone.Savestate.Snes9x\RosettaStone.Savestate.Snes9x.csproj" />
     <ProjectReference Include="..\RosettaStone.Sram.SoE\RosettaStone.Sram.SoE.csproj" />
+    <ProjectReference Include="..\SramCommons\SramCommons.csproj" />
   </ItemGroup>
 
 </Project>
