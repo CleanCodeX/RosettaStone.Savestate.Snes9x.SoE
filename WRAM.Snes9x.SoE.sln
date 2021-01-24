@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30803.129
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RosettaStone.Savestate.Snes9x.SoE", "RosettaStone.Savestate.Snes9x.SoE.csproj", "{179450E2-2053-4B2D-839C-631434B2E148}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WRAM.Snes9x.SoE", "WRAM.Snes9x.SoE.csproj", "{179450E2-2053-4B2D-839C-631434B2E148}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RosettaStone.Sram.SoE", "..\RosettaStone.Sram.SoE\RosettaStone.Sram.SoE.csproj", "{CC89E654-2494-43FA-AD67-D6395EA3DCB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRAM.SoE", "..\SRAM.SoE\SRAM.SoE.csproj", "{CC89E654-2494-43FA-AD67-D6395EA3DCB2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RosettaStone.Savestate.Snes9x", "..\RosettaStone.Savestate.Snes9x\RosettaStone.Savestate.Snes9x.csproj", "{C7EB57FA-F0B7-4E62-AEEB-08B04A486ACA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WRAM.Snes9x", "..\WRAM.Snes9x\WRAM.Snes9x.csproj", "{C7EB57FA-F0B7-4E62-AEEB-08B04A486ACA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SramCommons", "..\SramCommons\SramCommons.csproj", "{625DDB45-4044-4A44-BB0D-E4E0C91A3449}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SRAM", "..\SRAM\SRAM.csproj", "{625DDB45-4044-4A44-BB0D-E4E0C91A3449}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoE", "..\SoE\SoE.csproj", "{078735B7-9157-4A07-AA8B-0D3B00D4D9EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WRAM", "..\WRAM\WRAM.csproj", "{550517BD-E173-4BDF-9AFA-0A6D495703EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{625DDB45-4044-4A44-BB0D-E4E0C91A3449}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{625DDB45-4044-4A44-BB0D-E4E0C91A3449}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{625DDB45-4044-4A44-BB0D-E4E0C91A3449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{078735B7-9157-4A07-AA8B-0D3B00D4D9EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{078735B7-9157-4A07-AA8B-0D3B00D4D9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{078735B7-9157-4A07-AA8B-0D3B00D4D9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{078735B7-9157-4A07-AA8B-0D3B00D4D9EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{550517BD-E173-4BDF-9AFA-0A6D495703EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{550517BD-E173-4BDF-9AFA-0A6D495703EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{550517BD-E173-4BDF-9AFA-0A6D495703EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{550517BD-E173-4BDF-9AFA-0A6D495703EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

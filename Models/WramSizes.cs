@@ -1,6 +1,6 @@
-using RosettaStone.Sram.SoE.Models;
+using SRAM.SoE.Models;
 
-namespace RosettaStone.Savestate.Snes9x.SoE.Models
+namespace WRAM.Snes9x.SoE.Models
 {
 	/// <summary>
 	/// Known sizes of SoE's W-RAM buffer

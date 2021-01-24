@@ -2,11 +2,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using Common.Shared.Min.Helpers;
-using RosettaStone.Savestate.Snes9x.SoE.Models.Structs;
-using RosettaStone.Sram.SoE.Models.Enums;
-using SramCommons.Models;
+using SoE.Models.Enums;
+using WRAM.Models;
+using WRAM.Snes9x.SoE.Models.Structs;
 
-namespace RosettaStone.Savestate.Snes9x.SoE.Models
+namespace WRAM.Snes9x.SoE.Models
 {
 	/// <summary>
 	/// SramFile implementation for <see cref="WramSoE"/>
@@ -14,7 +14,7 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Models
 	public class WramFileSoE : WramFile<WramSoE>
 	{
 		/// <summary>
-		/// The SRAM's file gameRegion 
+		/// The SRAM's file region 
 		/// </summary>
 		public GameRegion GameRegion { get; }
 
@@ -22,22 +22,22 @@ namespace RosettaStone.Savestate.Snes9x.SoE.Models
 		/// Creates an instance of <see cref="WramFileSoE" />
 		/// </summary>
 		/// <param name="buffer">The buffer from which the W-RAM buffer and W-RAM structure will be loaded from</param>
-		/// <param name="gameRegion">The SRAM's file gameRegion</param>
-		public WramFileSoE(byte[] buffer, GameRegion gameRegion) : base(buffer)
+		/// <param name="region">The SRAM's file region</param>
+		public WramFileSoE(byte[] buffer, GameRegion region) : base(buffer)
 		{
 			SizeChecks();
-			GameRegion = gameRegion;
+			GameRegion = region;
 		}
 
 		/// <summary>
 		/// Creates an instance of <see cref="WramFileSoE" />
 		/// </summary>
 		/// <param name="stream">The (opened) stream from which the W-RAM buffer and W-RAM structure will be loaded from</param>
-		/// <param name="gameRegion">The SRAM's file gameRegion</param>
-		public WramFileSoE(Stream stream, GameRegion gameRegion) : base(stream)
+		/// <param name="region">The SRAM's file region</param>
+		public WramFileSoE(Stream stream, GameRegion region) : base(stream)
 		{
 			SizeChecks();
-			GameRegion = gameRegion;
+			GameRegion = region;
 		}
 
 		private void SizeChecks()

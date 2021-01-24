@@ -4,12 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Common.Shared.Min.Extensions;
-using RosettaStone.Savestate.Snes9x.Helpers;
-using RosettaStone.Savestate.Snes9x.SoE.Helpers;
-using RosettaStone.Sram.SoE.Models.Structs;
-using SramCommons.Extensions;
+using IO.Extensions;
+using Savestate.Snes9x.Helpers;
+using SoE.Models.Enums;
+using WRAM.Snes9x.SoE.Helpers;
+using SRAM.SoE.Models.Structs;
 
-namespace RosettaStone.Savestate.Snes9x.SoE
+namespace WRAM.Snes9x.SoE
 {
 	public static class Program
 	{
@@ -34,7 +35,7 @@ namespace RosettaStone.Savestate.Snes9x.SoE
 				Console.WriteLine();
 
 				var savestateFile = SavestateReader.Load(filePath);
-				var sramFile = SavestateWramHelper.GetSramFileFromSavestate(savestateFile);
+				var sramFile = SavestateWramHelper.GetSramFileFromSavestate(savestateFile, GameRegion.EnglishNtsc);
 
 				var fileName = Path.GetFileNameWithoutExtension(filePath);
 				var srmFilePath = Path.Join(Path.GetDirectoryName(filePath), fileName + ".srm");

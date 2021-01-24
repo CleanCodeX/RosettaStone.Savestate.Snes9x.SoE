@@ -1,9 +1,9 @@
 using System.Runtime.InteropServices;
-using RosettaStone.Sram.SoE.Models.Structs.Chunks;
+using SRAM.SoE.Models.Structs.Chunks;
 
 // ReSharper disable BuiltInTypeReferenceStyle
 
-namespace RosettaStone.Savestate.Snes9x.SoE.Models.Structs
+namespace WRAM.Snes9x.SoE.Models.Structs
 {
 	/// <summary>
 	/// W-RAM format of SoE

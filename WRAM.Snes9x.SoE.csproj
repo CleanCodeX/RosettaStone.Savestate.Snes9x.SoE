@@ -3,24 +3,38 @@
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
 		<Nullable>enable</Nullable>
-		<Version>0.0.3-a1</Version>
-		<PackageTags>Snes9x, Savestate, SNES, S-RAM, SRAM, W-RAM, WRAM. Rosetta Stone, Rosetta-Stone, Super Nintendo, Super Famicon</PackageTags>
-		<Authors>CleanCoderX</Authors>
-		<Description>Snes9x's savestate load and S-RAM extract functionality for SoE</Description>
+		<Version>0.5.0-a1</Version>
+		<PackageTags>Snes9x, Savestate, SNES, W-RAM, WRAM. Rosetta Stone, Rosetta-Stone, Super Nintendo, Super Famicon</PackageTags>
+		<Authors>S. Krauter { CleanCoderX, XETH }</Authors>
+		<Description>Snes9x savestate load and S-RAM extract functionality for SoE</Description>
 		<Company>KST</Company>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<RepositoryUrl>https://github.com/CleanCodeX/RosettaStone.Savestate.Snes9x</RepositoryUrl>
-		<PackageId>CCX.RosettaStone.Savestate.Snes9x.SoE</PackageId>
-		<Product>RosettaStone.Savestate.Snes9x.SoE</Product>
+		<RepositoryUrl>https://github.com/CleanCodeX/Savestate.Snes9x</RepositoryUrl>
+		<PackageId>CCX.WRAM.Snes9x.SoE</PackageId>
+		<Product>WRAM.Snes9x.SoE</Product>
 		<Platforms>AnyCPU</Platforms>
 		<PackageIcon>Icon.png</PackageIcon>
 		<PackageProjectUrl>http://rosetta-stone.xeth.de</PackageProjectUrl>
-		<RepositoryType>Rosetta Stone</RepositoryType>
+		<RepositoryType>WRAM.Snes9x.SoE »Rosetta Stone«</RepositoryType>
 		<OutputType>Library</OutputType>
 		<ApplicationIcon>Icon.ico</ApplicationIcon>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CCX.SoE" Version="0.5.0-a1" />
+		<PackageReference Include="CCX.WRAM" Version="1.0.0-a1" />
+		<PackageReference Include="CCX.WRAM.Snes9x" Version="0.2.0-a1" />
+		<PackageReference Include="CCX.SRAM.SoE" Version="0.5.0-a1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\SoE\SoE.csproj" />
+		<ProjectReference Include="..\WRAM\WRAM.csproj" />
+		<ProjectReference Include="..\WRAM.Snes9x\WRAM.Snes9x.csproj" />
+		<ProjectReference Include="..\SRAM.SoE\SRAM.SoE.csproj" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<None Include="Icon.png">
@@ -47,18 +61,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CCX.RosettaStone.Savestate.Snes9x" Version="0.1.1-a1" />
-		<PackageReference Include="CCX.RosettaStone.Sram.SoE" Version="0.4.1-a2" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Folder Include="Properties\" />
 	</ItemGroup>
-
-	<ItemGroup>
-    <ProjectReference Include="..\RosettaStone.Savestate.Snes9x\RosettaStone.Savestate.Snes9x.csproj" />
-    <ProjectReference Include="..\RosettaStone.Sram.SoE\RosettaStone.Sram.SoE.csproj" />
-    <ProjectReference Include="..\SramCommons\SramCommons.csproj" />
-  </ItemGroup>
-
 </Project>
