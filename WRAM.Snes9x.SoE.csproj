@@ -13,20 +13,18 @@
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<RepositoryUrl>https://github.com/CleanCodeX/Savestate.Snes9x</RepositoryUrl>
 		<PackageId>CCX.WRAM.Snes9x.SoE</PackageId>
-		<Product>WRAM.Snes9x.SoE</Product>
+		<Product>WRAM.Snes9x.SoE »Rosetta Stone«</Product>
 		<Platforms>AnyCPU</Platforms>
 		<PackageIcon>Icon.png</PackageIcon>
 		<PackageProjectUrl>http://rosetta-stone.xeth.de</PackageProjectUrl>
-		<RepositoryType>WRAM.Snes9x.SoE »Rosetta Stone«</RepositoryType>
+		<RepositoryType>Rosetta Stone</RepositoryType>
 		<OutputType>Library</OutputType>
 		<ApplicationIcon>Icon.ico</ApplicationIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CCX.SoE" Version="0.5.0-a1" />
-		<PackageReference Include="CCX.WRAM" Version="1.0.0-a1" />
-		<PackageReference Include="CCX.WRAM.Snes9x" Version="0.2.0-a1" />
-		<PackageReference Include="CCX.SRAM.SoE" Version="0.5.0-a1" />
+		<PackageReference Include="CCX.WRAM.Snes9x" Version="0.2.0-a2" />
+		<PackageReference Include="CCX.SRAM.SoE" Version="0.5.0-a2" />
 	</ItemGroup>
 
 	<ItemGroup>
