@@ -1,5 +1,5 @@
 ﻿using System;
-using Savestate.Snes9x.Models.Structs;
+using WRAM.Snes9x.Models.Structs;
 using SoE.Models.Enums;
 using SRAM.SoE.Models;
 using WRAM.Snes9x.SoE.Models;

@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
 		<Nullable>enable</Nullable>
-		<Version>0.5.0-a1</Version>
+		<Version>0.5.0-b1</Version>
 		<PackageTags>Snes9x, Savestate, SNES, W-RAM, WRAM. Rosetta Stone, Rosetta-Stone, Super Nintendo, Super Famicon</PackageTags>
 		<Authors>S. Krauter { CleanCoderX, XETH }</Authors>
 		<Description>Snes9x savestate load and S-RAM extract functionality for SoE</Description>
@@ -11,7 +11,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<RepositoryUrl>https://github.com/CleanCodeX/Savestate.Snes9x</RepositoryUrl>
+		<RepositoryUrl>https://github.com/CleanCodeX/WRAM.Snes9x</RepositoryUrl>
 		<PackageId>CCX.WRAM.Snes9x.SoE</PackageId>
 		<Product>WRAM.Snes9x.SoE »Rosetta Stone«</Product>
 		<Platforms>AnyCPU</Platforms>
@@ -23,8 +23,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CCX.WRAM.Snes9x" Version="0.2.0-a2" />
-		<PackageReference Include="CCX.SRAM.SoE" Version="0.5.0-a2" />
+		<PackageReference Include="CCX.WRAM.Snes9x" Version="0.2.0-b1" />
+		<PackageReference Include="CCX.SRAM.SoE" Version="0.5.0-b1" />
 	</ItemGroup>
 
 	<ItemGroup>

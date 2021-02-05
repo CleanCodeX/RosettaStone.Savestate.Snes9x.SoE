@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Common.Shared.Min.Extensions;
 using IO.Extensions;
-using Savestate.Snes9x.Helpers;
+using WRAM.Snes9x.Helpers;
 using SoE.Models.Enums;
 using WRAM.Snes9x.SoE.Helpers;
 using SRAM.SoE.Models.Structs;
@@ -155,7 +155,7 @@ namespace WRAM.Snes9x.SoE
 			{
 				offset = ParseInt(key.Substring(valueIndex, sizeIndex - valueIndex));
 				var size = ParseInt(key.Substring(sizeIndex + 1));
-				value = saveSlotBytes[offset..(offset + size + 1)].FormatAsString(Delimiter);
+				value = saveSlotBytes[offset..(offset + size + 1)].Format();
 			}
 
 			Console.WriteLine($"{offset}: {value}");
@@ -208,13 +208,13 @@ namespace WRAM.Snes9x.SoE
 
 			if (sizeIndex == -1)
 			{
-				offset = ParseInt(key.Substring(valueIndex));
+				offset = ParseInt(key[valueIndex..]);
 				value = ((char)saveSlotBytes[offset]).ToString();
 			}
 			else
 			{
-				offset = ParseInt(key.Substring(valueIndex, sizeIndex - valueIndex));
-				var size = ParseInt(key.Substring(sizeIndex + 1));
+				offset = ParseInt(key[valueIndex..sizeIndex]);
+				var size = ParseInt(key[(sizeIndex + 1)..]);
 				value = Encoding.ASCII.GetChars(saveSlotBytes[offset..(offset + size + 1)]).Join(Delimiter);
 			}
 
