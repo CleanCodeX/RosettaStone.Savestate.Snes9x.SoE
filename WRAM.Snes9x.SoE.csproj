@@ -23,8 +23,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CCX.WRAM.Snes9x" Version="0.2.0-b1" />
-		<PackageReference Include="CCX.SRAM.SoE" Version="0.5.0-b1" />
+		<PackageReference Include="CCX.WRAM.Snes9x" Version="0.2.0-b2" />
+		<PackageReference Include="CCX.SRAM.SoE" Version="0.5.0-b2" />
 	</ItemGroup>
 
 	<ItemGroup>
