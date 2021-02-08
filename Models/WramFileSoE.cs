@@ -44,7 +44,7 @@ namespace WRAM.Snes9x.SoE.Models
 		{
 			Debug.Assert(WramSizes.IsValid);
 
-			Requires.Equal(Marshal.SizeOf<WramSoE>(), WramSizes.All, nameof(Size));
+			Requires.Equal(Marshal.SizeOf<WramSoE>(), WramSizes.Size, nameof(Size));
 		}
 	}
 }

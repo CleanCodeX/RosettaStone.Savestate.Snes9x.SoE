@@ -5,10 +5,10 @@ namespace WRAM.Snes9x.SoE.Models
 	/// <summary>
 	/// Known sizes of SoE's W-RAM buffer
 	/// </summary>
-	public class WramSizes
+	public static class WramSizes
 	{
-		public const int All = 128 * 1024;
-		public const bool IsValid = SramSizes.SaveSlot.AllChunks + AllUnknown == All;
+		public const int Size = 128 * 1024;
+		public const bool IsValid = All == Size;
 
 		#region Unknowns
 
@@ -36,12 +36,19 @@ namespace WRAM.Snes9x.SoE.Models
 
 		public const int Unknown19 = 110_619;
 
+		#region DO NOT RENAME - Accessed by Reflection
+
+		public const int All = SramSizes.SaveSlot.AllChunks + AllUnknown;
 		public const int AllUnknown = Unknown1 + Unknown2 + Unknown3 + Unknown4 + Unknown5 +
 		                              Unknown6 + Unknown7 + Unknown8 + Unknown9 + Unknown10 +
 		                              Unknown11 + Unknown12 + Unknown13 + Unknown14 + Unknown15 +
 		                              Unknown16 + Unknown17 + Unknown18 + Unknown19;
+		public const int AllKnown = Size - AllUnknown;
 
-		public const int UnknownPercentage = AllUnknown * 100 / All;
+		public const double UnknownPercentage = AllUnknown * 100D / Size;
+		public const double KnownPercentage = AllKnown * 100D / Size;
+
+		#endregion
 
 		#endregion
 	}
