@@ -1,4 +1,4 @@
-using SRAM.SoE.Models;
+using WRAM.Snes9x.SoE.Models.Structs.Chunks;
 
 namespace WRAM.Snes9x.SoE.Models
 {
@@ -14,8 +14,19 @@ namespace WRAM.Snes9x.SoE.Models
 
 		public const int Unknown1 = 2_613;
 
-		#region S-RAM area
-		public const int Unknown2 = 8; // (x)
+		#region Known chunk area
+
+		public const int AllChunks = Chunk01.Size + Chunk02.Size + Chunk03.Size + Chunk04.Size + Chunk05.Size +
+		                             Chunk06.Size + Chunk07.Size + Chunk08.Size + Chunk09.Size + Chunk10.Size +
+		                             Chunk11.Size + Chunk12.Size + Chunk13.Size + Chunk14.Size + Chunk15.Size +
+		                             Chunk16.Size + Chunk17.Size + Chunk18.Size + Chunk19.Size + Chunk20.Size +
+		                             Chunk21.Size;
+
+		#endregion
+
+		#region Unknown chunk area
+
+		public const int Unknown2 = 6; // (x)
 		public const int Unknown3 = 4; // (x)
 		public const int Unknown4 = 34; // (x)
 		public const int Unknown5 = 8; // (x)
@@ -32,13 +43,16 @@ namespace WRAM.Snes9x.SoE.Models
 		public const int Unknown16 = 42; // (x)
 		public const int Unknown17 = 26; // (x)
 		public const int Unknown18 = 60; // (x)
-#endregion
+
+		#endregion
 
 		public const int Unknown19 = 110_619;
 
+		#endregion
+
 		#region DO NOT RENAME - Accessed by Reflection
 
-		public const int All = SramSizes.SaveSlot.AllChunks + AllUnknown;
+		public const int All = AllChunks + AllUnknown;
 		public const int AllUnknown = Unknown1 + Unknown2 + Unknown3 + Unknown4 + Unknown5 +
 		                              Unknown6 + Unknown7 + Unknown8 + Unknown9 + Unknown10 +
 		                              Unknown11 + Unknown12 + Unknown13 + Unknown14 + Unknown15 +
@@ -47,8 +61,6 @@ namespace WRAM.Snes9x.SoE.Models
 
 		public const double UnknownPercentage = AllUnknown * 100D / Size;
 		public const double KnownPercentage = AllKnown * 100D / Size;
-
-		#endregion
 
 		#endregion
 	}
