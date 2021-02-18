@@ -13,7 +13,7 @@ namespace WRAM.Snes9x.SoE.Models.Structs.Chunks
 	/// Alchemies_Charms_Spots_Weapons
 	/// </summary>
 	/// <remarks><see cref="Size"/></remarks>
-	[HasComplexMembers]
+	[HasOffsetMembers]
 	[DebuggerDisplay("{ToString(),nq}")]
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct Chunk18

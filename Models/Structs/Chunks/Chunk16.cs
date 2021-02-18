@@ -12,7 +12,7 @@ namespace WRAM.Snes9x.SoE.Models.Structs.Chunks
 	/// EquWeapon_Moneys_EquAlchemies_WeaponLvls_DogAtkLvl
 	/// </summary>
 	/// <remarks><see cref="Size"/></remarks>
-	[HasComplexMembers]
+	[HasOffsetMembers]
 	[DebuggerDisplay("{ToString(),nq}")]
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct Chunk16

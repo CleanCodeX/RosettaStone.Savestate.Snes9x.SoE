@@ -11,7 +11,7 @@ namespace WRAM.Snes9x.SoE.Models.Structs.Chunks
 	/// LastLanding_CurrentWeapon
 	/// </summary>
 	/// <remarks><see cref="Size"/> W-RAM [$7E:235D23A0]</remarks>
-	[HasComplexMembers]
+	[HasOffsetMembers]
 	[DebuggerDisplay("{ToString(),nq}")]
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct Chunk20

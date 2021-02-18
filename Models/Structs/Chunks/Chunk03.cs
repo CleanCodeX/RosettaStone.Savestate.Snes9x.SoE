@@ -9,7 +9,7 @@ namespace WRAM.Snes9x.SoE.Models.Structs.Chunks
 	/// BoyStatusBuffs
 	/// </summary>
 	/// <remarks><see cref="Size"/></remarks>
-	[HasComplexMembers]
+	[HasOffsetMembers]
 	[DebuggerDisplay("{ToString(),nq}")]
 	[StructLayout(LayoutKind.Sequential, Pack = 2)]
 	public struct Chunk03

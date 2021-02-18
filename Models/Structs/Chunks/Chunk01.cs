@@ -14,7 +14,7 @@ namespace WRAM.Snes9x.SoE.Models.Structs.Chunks
 	{
 		public const int Size = 72;
 
-		public FixedLengthString BoyName; // [36|x26] (36 bytes)
-		public FixedLengthString DogName; // [74|x4A] (36 bytes)
+		public FixedLengthString BoyName; // [36|x26] (36 bytes) [7E2210]
+		public FixedLengthString DogName; // [74|x4A] (36 bytes) [7E2234]
 	}
 }

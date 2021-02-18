@@ -20,6 +20,6 @@ namespace WRAM.Snes9x.SoE.Models.Structs.Chunks
 		public UInt16 DogMagicDefense;// [213|xD5] (2 bytes)
 		public UInt16 DogEvadePercent;// [215|xD7] (2 bytes)
 		public UInt16 DogHitPercent;// [217|x9D9] (2 bytes)
-		public UInt24 Experience; // [219|xDB] (3 bytes)
+		public UInt24 DogExperience; // [219|xDB] (3 bytes)
 	}
 }
