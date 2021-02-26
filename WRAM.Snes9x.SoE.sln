@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WRAM.Snes9x", "..\WRAM.Snes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoE", "..\SoE\SoE.csproj", "{078735B7-9157-4A07-AA8B-0D3B00D4D9EE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WRAM", "..\WRAM\WRAM.csproj", "{550517BD-E173-4BDF-9AFA-0A6D495703EC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{078735B7-9157-4A07-AA8B-0D3B00D4D9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{078735B7-9157-4A07-AA8B-0D3B00D4D9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{078735B7-9157-4A07-AA8B-0D3B00D4D9EE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{550517BD-E173-4BDF-9AFA-0A6D495703EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{550517BD-E173-4BDF-9AFA-0A6D495703EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{550517BD-E173-4BDF-9AFA-0A6D495703EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{550517BD-E173-4BDF-9AFA-0A6D495703EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
