@@ -18,7 +18,7 @@ namespace WRAM.Snes9x.SoE.Models.Structs.Chunks
 	{
 		public const int Size = 92;
 
-		public Ingredients Ingredients; // [649|x289] [$7E:22FF2314]  (22 bytes)
+		public Ingredients Ingredients; // [649|x289] [$7E:22FF2314] (22 bytes)
 		public Items Items; // [671|x29F] [$7E:2315231C] (8 bytes)
 		public Armors Armors; // [679|x2A7] [$7E:231D2344] (40 bytes)
 		public BazookaAmmunitions BazookaAmmunitions; // [719|x2CF] [$7E:2345-2347] (3 bytes)

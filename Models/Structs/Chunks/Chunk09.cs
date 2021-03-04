@@ -14,6 +14,6 @@ namespace WRAM.Snes9x.SoE.Models.Structs.Chunks
 	{
 		public const int Size = 2;
 
-		public UInt16 DogCurrentHp; // [175|xAF] (2 bytes)
+		public UInt16 DogCurrentHp; // [175|xAF] 
 	}
 }

@@ -14,6 +14,6 @@ namespace WRAM.Snes9x.SoE.Models.Structs.Chunks
 	{
 		public const int Size = 2;
 
-		public UInt16 BoyMaxHp;
+		public UInt16 BoyMaxHp; // [142|x8E] 
 	}
 }

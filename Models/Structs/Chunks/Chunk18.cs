@@ -25,7 +25,7 @@ namespace WRAM.Snes9x.SoE.Models.Structs.Chunks
 
 		// Unknown 14
 		public Unknown14 Unknown14; // [509|x1FB] (2 bytes) 
-		public byte Unknown14B; // [5011|x1FD] (1 byte) 
+		public byte Unknown14B; // [511|x1FD] (1 byte) 
 
 		// Charms
 		public CharmsAndRareItems CharmsAndRareItems; // [512|x200] (4 bytes)
