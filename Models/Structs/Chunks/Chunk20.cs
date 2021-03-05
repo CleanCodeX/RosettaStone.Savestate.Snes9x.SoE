@@ -8,7 +8,7 @@ using SoE.Models.Enums;
 namespace WRAM.Snes9x.SoE.Models.Structs.Chunks
 {
 	/// <summary>
-	/// LastLanding_CurrentWeapon
+	/// CurrentWeapon_LastLanding
 	/// </summary>
 	/// <remarks><see cref="Size"/> W-RAM [$7E:235D23A0]</remarks>
 	[HasOffsetMembers]

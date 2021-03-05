@@ -18,6 +18,6 @@ namespace WRAM.Snes9x.SoE.Models.Structs.Chunks
 
 		// Boy Status Buffs 1-4
 		[MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-		public CharacterBuffStatus[] Status; // [112|x70] (4x6 bytes)
+		public CharacterBuffStatus[] BoyStatusBuffs; // [112|x70] (4x6 bytes)
 	}
 }
