@@ -58,7 +58,7 @@ namespace WRAM.Snes9x.SoE.Models.Structs.Chunks
 
 		public UInt32 ScriptedEventTimer; // [S:331|x14B] [$7E:0B19]
 
-		// Control Prefs screen
+		// Control Prefs screen (6 bytes)
 		public UInt16 ControlsPrefs_Configuration; // [S:335|x14F] [$7E:0B21] 0, 2
 		public UInt16 ControlPrefs_RunButton; // [S:337|x151] [$7E:0B23]
 		public UInt16 ControlPrefs_AttackButton; // [S:339|x153] [$7E:0B25]

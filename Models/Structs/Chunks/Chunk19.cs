@@ -57,10 +57,10 @@ namespace WRAM.Snes9x.SoE.Models.Structs.Chunks
 		// [731|x2DB] [$7E:2351]
 		public byte IvorTowerPrisonSewerExit;
 
-		// [732|x2DC] [$7E:2352] (1 byte)
+		// [732|x2DC] [$7E:2352] 
 		public byte QueensKeyOnDog;
 
-		// [733|x2DD] [$7E:2353] (1 byte)
+		// [733|x2DD] [$7E:2353] 
 		public byte QueensKeyOnBoy;
 
 		// [734|x2DE] [$7E:2354]
