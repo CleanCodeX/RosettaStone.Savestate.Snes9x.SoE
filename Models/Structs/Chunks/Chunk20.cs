@@ -30,8 +30,8 @@ namespace WRAM.Snes9x.SoE.Models.Structs.Chunks
 		[MarshalAs(UnmanagedType.ByValArray, SizeConst = Sizes.Unknown17E1)]
 		public byte[] Unknown17E1; // [749|x2ED] (4 bytes)
 
-		public ColorCode Code1; // [753|x2F1] [$7E:236D] (6 bytes)
-		public ColorCode Code2; // [759|x2F7] [$7E:2373] (6 bytes)
+		public ColorCode AlarmCode; // [753|x2F1] [$7E:236D] (6 bytes)
+		public ColorCode SecretCode; // [759|x2F7] [$7E:2373] (6 bytes)
 
 		public UInt16 Unknown17E2; // [765|x2FD] 
 
